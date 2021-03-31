@@ -1,0 +1,5 @@
+include ':sichuan'
+include ':t-3'
+include ':listview'
+include ':app'
+rootProject.name = "My Application3"
