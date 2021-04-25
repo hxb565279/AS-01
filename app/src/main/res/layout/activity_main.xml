@@ -6,24 +6,53 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-   <TextView
-       android:id="@+id/tv1"
-       android:layout_marginTop="20dp"
-       android:text="学生信息管理系统"
-       android:textSize="40dp"
-       android:layout_gravity="center"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       />
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="学生信息管理系统"
+        android:textSize="40dp" />
+
     <Button
         android:id="@+id/bt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:text="0.学生信息登记"
-        android:textSize="30dp"
         android:textColor="@color/cardview_dark_background"
-        />
+        android:textSize="30dp" />
+
+       <Button
+        android:id="@+id/bt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="1.学生信息..."
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="30dp" />
+
+      <Button
+        android:id="@+id/bt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="2.学生信息..."
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="30dp" />
+
+       <Button
+        android:id="@+id/bt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="3.学生信息登..."
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="30dp" />
 
 </LinearLayout>

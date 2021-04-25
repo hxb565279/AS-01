@@ -1,5 +1,6 @@
 package com.hxb.myapplication3;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,8 +25,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        StringBuffer stringBuffer = new StringBuffer("注册成功,注册信息 "+"姓名："+username.getText()+"手机号： "+phone.getText()+" 身份证："+xx.getText());
+        if (username.getText()==null){
+            Toast.makeText(RegisterActivity.this,"账号输入为空",Toast.LENGTH_LONG).show();
 
+        }
+        if (phone.getText()==null){
+            Toast.makeText(RegisterActivity.this,"手机号输入为空",Toast.LENGTH_LONG).show();
+        }
+
+        StringBuffer stringBuffer = new StringBuffer("注册成功,注册信息 "+"姓名："+username.getText()+"手机号： "+phone.getText()+" 身份证："+xx.getText());
         Toast.makeText(RegisterActivity.this,stringBuffer,Toast.LENGTH_LONG).show();
+        Intent intent2 = new Intent(RegisterActivity.this,Message_check.class);
+        startActivity(intent2);
     }
 }

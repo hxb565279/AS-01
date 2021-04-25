@@ -3,68 +3,63 @@ package com.hxb.saveqq;
 import android.content.Context;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class FileSaveQQ {
-    public static Map<String,String> getUserInfo(Context context){
-        String content="";
-        Map<String,String> userMap= new HashMap<>();
-        FileInputStream fileInputStream= null;
-        try {
-            fileInputStream = context.openFileInput("date.txt");
-            byte[] buffer = new byte[fileInputStream.available()];
-           int count =    fileInputStream.read(buffer);
-            content = new String(buffer);
-            String [] infos = content.split(":");
-            userMap.put("account",infos[0]);
-            userMap.put("password",infos[1]);
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            if (fileInputStream!=null){
-                try {
-                    fileInputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return userMap;
-    }
-
-
-    public static boolean saveUserInfo(Context context, String account, String password) {
+    //保存QQ账号和登录密码到data.txt文件中
+    public static boolean saveUserInfo(Context context, String account, String
+            password) {
         FileOutputStream fos = null;
         try {
-            //输出流对象的获取
-            fos = context.openFileOutput("data.txt", Context.MODE_PRIVATE);
-            byte[] bstr = (account + "" + password).getBytes();
+            //获取文件的输出流对象fos
+            fos = context.openFileOutput("data.txt",
+                    Context.MODE_PRIVATE);
+            //将数据转换为字节码的形式写入data.txt文件中
+            fos.write((account + ":" + password).getBytes());
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }finally {
             try {
-                fos.write(bstr);
+                if(fos != null){
+                    fos.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } catch (FileNotFoundException e) {
+        }
+    }
+    //从data.txt文件中获取存储的QQ账号和密码
+    public static Map<String, String> getUserInfo(Context context) {
+        String content = "";
+        FileInputStream fis = null;
+        try {
+            //获取文件的输入流对象fis
+            fis = context.openFileInput("data.txt");
+            //将输入流对象中的数据转换为字节码的形式
+            byte[] buffer = new byte[fis.available()];
+            fis.read(buffer);//通过read()方法读取字节码中的数据
+            content = new String(buffer); //将获取的字节码转换为字符串
+            Map<String, String> userMap = new HashMap<String, String>();
+            String[] infos = content.split(":");//将字符串以“：”分隔后形成一个数组的形式
+            userMap.put("account", infos[0]);   //将数组中的第一个数据放入userMap集合中
+            userMap.put("password", infos[1]); //将数组中的第二个数据放入userMap集合中
+            return userMap;
+        } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (fos != null) {
-                try {
-                    fos.close();
-                } catch (IOException e) {
-
+            return null;
+        }finally {
+            try {
+                if(fis != null){
+                    fis.close();
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
-        return false;
     }
-
-
 }
