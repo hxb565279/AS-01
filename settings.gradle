@@ -1,3 +1,8 @@
+include ':musicplayer'
+include ':ch09-1'
+include ':startservice'
+include ':broadcastreceiver'
+include ':moniterdata'
 include ':contentobserverdb'
 include ':notepad'
 include ':direcctory'

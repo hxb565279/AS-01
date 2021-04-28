@@ -12,15 +12,20 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/broadcastreceiver" />
+            <option value="$PROJECT_DIR$/ch09-1" />
             <option value="$PROJECT_DIR$/contentobserverdb" />
             <option value="$PROJECT_DIR$/direcctory" />
             <option value="$PROJECT_DIR$/directary" />
             <option value="$PROJECT_DIR$/directory" />
             <option value="$PROJECT_DIR$/listview" />
+            <option value="$PROJECT_DIR$/moniterdata" />
+            <option value="$PROJECT_DIR$/musicplayer" />
             <option value="$PROJECT_DIR$/notepad" />
             <option value="$PROJECT_DIR$/readsms" />
             <option value="$PROJECT_DIR$/saveqq" />
             <option value="$PROJECT_DIR$/sichuan" />
+            <option value="$PROJECT_DIR$/startservice" />
             <option value="$PROJECT_DIR$/t-3" />
           </set>
         </option>
